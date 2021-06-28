@@ -1,0 +1,736 @@
+@prefix : <http://ontologies.adaptcentre.ie/bvas#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://ontologies.adaptcentre.ie/bvas> .
+
+<http://ontologies.adaptcentre.ie/bvas> rdf:type owl:Ontology ;
+                                         owl:versionIRI <http://ontologies.adaptcentre.ie/bvas> ;
+                                         <http://creativecommons.org/ns#license> <http://creativecommons.org/licenses/by/4.0/> ;
+                                         <http://purl.org/dc/elements/1.1/creator> "ADAPT" ;
+                                         <http://purl.org/dc/elements/1.1/date> "2021-05-06" ;
+                                         <http://purl.org/dc/elements/1.1/publisher> <http://www.adapt-centre.ie/> ;
+                                         <http://purl.org/dc/elements/1.1/rights> """The Birmingham Vasculitis Activity Score Ontology is available under the CC 4.0 BY License; see http://creativecommons.org/licenses/by/4.0/.
+		This license lets others distribute, remix, tweak, and build upon your work, even commercially, as long as they credit you for the
+		original creation. For proper attribution, simply include the statement: \"This work is based on the Irish Rare Kidney Disease Registry, developed as
+		a collaboration between the Knowledge and Data Engineering Group, Trinity College Dublin and ??? as part of the
+		SFI ADAPT Centre (Grant ???).\" and link back to the ontology's URL."""@en ;
+                                         <http://purl.org/dc/elements/1.1/title> "The Birmingham Vasculitis Activity Score Ontology"@en ;
+                                         rdfs:comment "The labels for concepts introduced for this ontology are still pending approval." ;
+                                         owl:versionInfo "1.00.000" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://creativecommons.org/ns#license
+<http://creativecommons.org/ns#license> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/creator
+<http://purl.org/dc/elements/1.1/creator> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/date
+<http://purl.org/dc/elements/1.1/date> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/publisher
+<http://purl.org/dc/elements/1.1/publisher> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/rights
+<http://purl.org/dc/elements/1.1/rights> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/title
+<http://purl.org/dc/elements/1.1/title> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://ontologies.adaptcentre.ie/bvas#hasBVASAbdominal
+:hasBVASAbdominal rdf:type owl:ObjectProperty ;
+                  rdfs:domain :BVAS ;
+                  rdfs:range :BVASAbdominal .
+
+
+###  http://ontologies.adaptcentre.ie/bvas#hasBVASCardiovascular
+:hasBVASCardiovascular rdf:type owl:ObjectProperty ;
+                       rdfs:domain :BVAS ;
+                       rdfs:range :BVASCardiovascular .
+
+
+###  http://ontologies.adaptcentre.ie/bvas#hasBVASChest
+:hasBVASChest rdf:type owl:ObjectProperty ;
+              rdfs:domain :BVAS ;
+              rdfs:range :BVASChest .
+
+
+###  http://ontologies.adaptcentre.ie/bvas#hasBVASCutaneous
+:hasBVASCutaneous rdf:type owl:ObjectProperty ;
+                  rdfs:domain :BVAS ;
+                  rdfs:range :BVASCutaneous .
+
+
+###  http://ontologies.adaptcentre.ie/bvas#hasBVASENT
+:hasBVASENT rdf:type owl:ObjectProperty ;
+            rdfs:domain :BVAS ;
+            rdfs:range :BVASEnt .
+
+
+###  http://ontologies.adaptcentre.ie/bvas#hasBVASGeneral
+:hasBVASGeneral rdf:type owl:ObjectProperty ;
+                rdfs:domain :BVAS ;
+                rdfs:range :BVASGeneral .
+
+
+###  http://ontologies.adaptcentre.ie/bvas#hasBVASMucousMembrane
+:hasBVASMucousMembrane rdf:type owl:ObjectProperty ;
+                       rdfs:domain :BVAS ;
+                       rdfs:range <http://ontologies.adaptcentre.ie/bvas#BVASMucousMembranes&Eyes> .
+
+
+###  http://ontologies.adaptcentre.ie/bvas#hasBVASNervousSystem
+:hasBVASNervousSystem rdf:type owl:ObjectProperty ;
+                      rdfs:domain :BVAS ;
+                      rdfs:range :BVASNervousSystem .
+
+
+###  http://ontologies.adaptcentre.ie/bvas#hasBVASRenal
+:hasBVASRenal rdf:type owl:ObjectProperty ;
+              rdfs:domain :BVAS ;
+              rdfs:range :BVASRenal .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://ontologies.adaptcentre.ie/bvas#adnexalInflamationScore
+:adnexalInflamationScore rdf:type owl:DatatypeProperty ;
+                         rdfs:subPropertyOf :bvasMucousScore ;
+                         rdfs:domain <http://ontologies.adaptcentre.ie/bvas#BVASMucousMembranes&Eyes> ;
+                         rdfs:range xsd:int ;
+                         rdfs:comment "Salivary or lacrimal gland inflammation.  (2 persistent, 4 new/worse)" .
+
+
+###  http://ontologies.adaptcentre.ie/bvas#artScore
+:artScore rdf:type owl:DatatypeProperty ;
+          rdfs:subPropertyOf :bvasGeneralScore ;
+          rdfs:domain :BVASGeneral ;
+          rdfs:range xsd:int ;
+          rdfs:comment "Pain in the joints or joint inflammation (1 persistent, 1 new/worse)" .
+
+
+###  http://ontologies.adaptcentre.ie/bvas#bloodyDiarrhoeaScore
+:bloodyDiarrhoeaScore rdf:type owl:DatatypeProperty ;
+                      rdfs:subPropertyOf :bvasAbdominalScore ;
+                      rdfs:domain :BVASAbdominal ;
+                      rdfs:range xsd:int ;
+                      rdfs:comment "Of recent onset (3 persistent, 9 new/worse)" .
+
+
+###  http://ontologies.adaptcentre.ie/bvas#bloodyNasalScore
+:bloodyNasalScore rdf:type owl:DatatypeProperty ;
+                  rdfs:subPropertyOf :bvasENTScore ;
+                  rdfs:domain :BVASEnt ;
+                  rdfs:range xsd:int ;
+                  rdfs:comment "Bloody, mucopurulent, nasal secretion, light or dark brown crusts frequently obstructing the nose, nasal ulcers or granulomatous lesions observed on rhinoscopy (2 persistent, 4 new/worse)" .
+
+
+###  http://ontologies.adaptcentre.ie/bvas#blurredVisionScore
+:blurredVisionScore rdf:type owl:DatatypeProperty ;
+                    rdfs:subPropertyOf :bvasMucousScore ;
+                    rdfs:domain <http://ontologies.adaptcentre.ie/bvas#BVASMucousMembranes&Eyes> ;
+                    rdfs:range xsd:int ;
+                    rdfs:comment "Deterioration of visual acuity from previous or baseline (2 persistent, 3 new/worse)" .
+
+
+###  http://ontologies.adaptcentre.ie/bvas#bvasAbdominalScore
+:bvasAbdominalScore rdf:type owl:DatatypeProperty ;
+                    rdfs:subPropertyOf :bvasScore ;
+                    rdfs:comment "Max score: (4 persistent, 9 new/worse)" .
+
+
+###  http://ontologies.adaptcentre.ie/bvas#bvasCardioVascularScore
+:bvasCardioVascularScore rdf:type owl:DatatypeProperty ;
+                         rdfs:subPropertyOf :bvasScore ;
+                         rdfs:comment "Max score: (3 persistent, 6 new/worse)" .
+
+
+###  http://ontologies.adaptcentre.ie/bvas#bvasChestScore
+:bvasChestScore rdf:type owl:DatatypeProperty ;
+                rdfs:subPropertyOf :bvasScore ;
+                rdfs:comment "Max score: (3 persistent, 6 new/worse)" .
+
+
+###  http://ontologies.adaptcentre.ie/bvas#bvasCutaneousScore
+:bvasCutaneousScore rdf:type owl:DatatypeProperty ;
+                    rdfs:subPropertyOf :bvasScore ;
+                    rdfs:comment "Max score: (3 persistent, 6 new/worse)" .
+
+
+###  http://ontologies.adaptcentre.ie/bvas#bvasENTScore
+:bvasENTScore rdf:type owl:DatatypeProperty ;
+              rdfs:subPropertyOf :bvasScore ;
+              rdfs:comment "Max score: (3 persistent, 6 new/worse)" .
+
+
+###  http://ontologies.adaptcentre.ie/bvas#bvasGeneralScore
+:bvasGeneralScore rdf:type owl:DatatypeProperty ;
+                  rdfs:subPropertyOf :bvasScore ;
+                  rdfs:comment "Max score: (2 persistent, 3 new/worse)" .
+
+
+###  http://ontologies.adaptcentre.ie/bvas#bvasMucousScore
+:bvasMucousScore rdf:type owl:DatatypeProperty ;
+                 rdfs:subPropertyOf :bvasScore ;
+                 rdfs:comment "Max score: (3 persistent, 6 new/worse)" .
+
+
+###  http://ontologies.adaptcentre.ie/bvas#bvasNervousSystemScore
+:bvasNervousSystemScore rdf:type owl:DatatypeProperty ;
+                        rdfs:subPropertyOf :bvasScore ;
+                        rdfs:comment "Max score: (6 persistent, 9 new/worse)" .
+
+
+###  http://ontologies.adaptcentre.ie/bvas#bvasPersistant
+:bvasPersistant rdf:type owl:DatatypeProperty ;
+                rdfs:subPropertyOf :bvasScore ;
+                rdfs:domain :BVAS ;
+                rdfs:range xsd:boolean .
+
+
+###  http://ontologies.adaptcentre.ie/bvas#bvasRenalScore
+:bvasRenalScore rdf:type owl:DatatypeProperty ;
+                rdfs:subPropertyOf :bvasScore ;
+                rdfs:comment "Max score: (6 persistent, 12 new/worse)" .
+
+
+###  http://ontologies.adaptcentre.ie/bvas#bvasScore
+:bvasScore rdf:type owl:DatatypeProperty ;
+           rdfs:subPropertyOf owl:topDataProperty ;
+           rdfs:domain :BVAS ;
+           rdfs:range xsd:int .
+
+
+###  http://ontologies.adaptcentre.ie/bvas#bvasScoreCalculator
+:bvasScoreCalculator rdf:type owl:DatatypeProperty ;
+                     rdfs:subPropertyOf :bvasScore ;
+                     rdfs:domain :BVAS ;
+                     rdfs:range xsd:int .
+
+
+###  http://ontologies.adaptcentre.ie/bvas#cardiomyopathyScore
+:cardiomyopathyScore rdf:type owl:DatatypeProperty ;
+                     rdfs:subPropertyOf :bvasCardioVascularScore ;
+                     rdfs:domain :BVASCardiovascular ;
+                     rdfs:range xsd:int ;
+                     rdfs:comment "Significant impairment of cardiac function due to poor ventricular wall motion confirmed on echocardiography (3 persistent, 6 new/worse)" .
+
+
+###  http://ontologies.adaptcentre.ie/bvas#conductiveScore
+:conductiveScore rdf:type owl:DatatypeProperty ;
+                 rdfs:subPropertyOf :bvasENTScore ;
+                 rdfs:domain :BVASEnt ;
+                 rdfs:range xsd:int ;
+                 rdfs:comment "Hearing loss due to middle ear involvement (usually confirmed by audiometry) (1 persistent, 3 new/worse)" .
+
+
+###  http://ontologies.adaptcentre.ie/bvas#congestiveCardiacFailureScore
+:congestiveCardiacFailureScore rdf:type owl:DatatypeProperty ;
+                               rdfs:subPropertyOf :bvasCardioVascularScore ;
+                               rdfs:domain :BVASCardiovascular ;
+                               rdfs:range xsd:int ;
+                               rdfs:comment "Heart failure by history or clinical examination (3 persistent, 6 new/worse)" .
+
+
+###  http://ontologies.adaptcentre.ie/bvas#conjunctivitisScore
+:conjunctivitisScore rdf:type owl:DatatypeProperty ;
+                     rdfs:subPropertyOf :bvasMucousScore ;
+                     rdfs:domain <http://ontologies.adaptcentre.ie/bvas#BVASMucousMembranes&Eyes> ;
+                     rdfs:range xsd:int ;
+                     rdfs:comment "Inflammation of the conjunctiva, eyelids or cornea - but not due to sicca syndrome (1 persistent, 1 new/worse)" .
+
+
+###  http://ontologies.adaptcentre.ie/bvas#cranialNervePalsyScore
+:cranialNervePalsyScore rdf:type owl:DatatypeProperty ;
+                        rdfs:subPropertyOf :bvasNervousSystemScore ;
+                        rdfs:domain :BVASNervousSystem ;
+                        rdfs:range xsd:int ;
+                        rdfs:comment "Clinical evidence of cranial nerve palsy â€“ score VIII nerve palsy as sensorineural hearing loss, do not score ocular palsies if they secondary to pressure effects (3 persistent, 6 new/worse)" .
+
+
+###  http://ontologies.adaptcentre.ie/bvas#creatineChangeScore
+:creatineChangeScore rdf:type owl:DatatypeProperty ;
+                     rdfs:subPropertyOf :bvasRenalScore ;
+                     rdfs:domain :BVASRenal ;
+                     rdfs:range xsd:int ;
+                     rdfs:comment "Progressive worsening of renal function. Can be used at each assessment if the renal function has deteriorated from prior value. Patient either has >30% rise in creatinine, or >25% fall in creatinine clearance *  (* persistent, 6 new/worse)" .
+
+
+###  http://ontologies.adaptcentre.ie/bvas#dateOfEncounter
+:dateOfEncounter rdf:type owl:DatatypeProperty ;
+                 rdfs:subPropertyOf <http://www.w3.org/ns/prov#generatedAtTime> ;
+                 rdfs:domain :BVAS ;
+                 rdfs:range xsd:int ;
+                 rdfs:comment "Date of BVAS Encounter" .
+
+
+###  http://ontologies.adaptcentre.ie/bvas#endobronchialScore
+:endobronchialScore rdf:type owl:DatatypeProperty ;
+                    rdfs:subPropertyOf :bvasChestScore ;
+                    rdfs:domain :BVASChest ;
+                    rdfs:range xsd:int ;
+                    rdfs:comment "Endobronchial pseudotumor or ulcerative lesions. NB: smooth stenotic lesions to be included in VDI; subglottic lesions to be recorded in the ENT section (2 persistent, 4 new/worse)" .
+
+
+###  http://ontologies.adaptcentre.ie/bvas#feverScore
+:feverScore rdf:type owl:DatatypeProperty ;
+            rdfs:subPropertyOf :bvasGeneralScore ;
+            rdfs:domain :BVASGeneral ;
+            rdfs:range xsd:int ;
+            rdfs:comment "Documented oral / axillary temperature. If rectal temperature is measured, raise threshold to 38.5Â° C (2 persistent, 2 new/worse)" .
+
+
+###  http://ontologies.adaptcentre.ie/bvas#gangreneScore
+:gangreneScore rdf:type owl:DatatypeProperty ;
+               rdfs:subPropertyOf :bvasCutaneousScore ;
+               rdfs:domain :BVASCutaneous ;
+               rdfs:range xsd:int ;
+               rdfs:comment "Extensive tissue necrosis score (2 persistent, 6 new/worse)" .
+
+
+###  http://ontologies.adaptcentre.ie/bvas#genitalUlcersScore
+:genitalUlcersScore rdf:type owl:DatatypeProperty ;
+                    rdfs:subPropertyOf :bvasMucousScore ;
+                    rdfs:domain <http://ontologies.adaptcentre.ie/bvas#BVASMucousMembranes&Eyes> ;
+                    rdfs:range xsd:int ;
+                    rdfs:comment "Ulcers on the genitalia or perineum (1 persistent, 1 new/worse)" .
+
+
+###  http://ontologies.adaptcentre.ie/bvas#haematuriaScore
+:haematuriaScore rdf:type owl:DatatypeProperty ;
+                 rdfs:subPropertyOf :bvasRenalScore ;
+                 rdfs:comment "â€˜Moderateâ€™ on urinalysis or â‰¥10 RBC per high power field, usually accompanied by red cell casts  (3 persistent, 6 new/worse)" .
+
+
+###  http://ontologies.adaptcentre.ie/bvas#haemoptysisScore
+:haemoptysisScore rdf:type owl:DatatypeProperty ;
+                  rdfs:subPropertyOf :bvasChestScore ;
+                  rdfs:domain :BVASChest ;
+                  rdfs:range xsd:int ;
+                  rdfs:comment "Major pulmonary bleeding, with shifting pulmonary infiltrates (4 persistent, 6 new/worse)" .
+
+
+###  http://ontologies.adaptcentre.ie/bvas#headacheScore
+:headacheScore rdf:type owl:DatatypeProperty ;
+               rdfs:subPropertyOf :bvasNervousSystemScore ;
+               rdfs:domain :BVASNervousSystem ;
+               rdfs:range xsd:int ;
+               rdfs:comment "Unaccustomed & persistent headache  (1 persistent, 1 new/worse)" .
+
+
+###  http://ontologies.adaptcentre.ie/bvas#hypertensionScore
+:hypertensionScore rdf:type owl:DatatypeProperty ;
+                   rdfs:subPropertyOf :bvasRenalScore ;
+                   rdfs:domain :BVASRenal ;
+                   rdfs:range xsd:int ;
+                   rdfs:comment "Diastolic >95 mm Hg (1 persistent, 4 new/worse)" .
+
+
+###  http://ontologies.adaptcentre.ie/bvas#infarctScore
+:infarctScore rdf:type owl:DatatypeProperty ;
+              rdfs:subPropertyOf :bvasCutaneousScore ;
+              rdfs:domain :BVASCutaneous ;
+              rdfs:range xsd:int ;
+              rdfs:comment "Area of tissue necrosis or splinter haemorrhages score (1 persistent, 2 new/worse)" .
+
+
+###  http://ontologies.adaptcentre.ie/bvas#infiltrateScore
+:infiltrateScore rdf:type owl:DatatypeProperty ;
+                 rdfs:subPropertyOf :bvasChestScore ;
+                 rdfs:domain :BVASChest ;
+                 rdfs:range xsd:int ;
+                 rdfs:comment "Detected on chest X-ray or CT scan (2 persistent, 4 new/worse)" .
+
+
+###  http://ontologies.adaptcentre.ie/bvas#ischaemicAbdominalPainScore
+:ischaemicAbdominalPainScore rdf:type owl:DatatypeProperty ;
+                             rdfs:subPropertyOf :bvasAbdominalScore ;
+                             rdfs:domain :BVASAbdominal ;
+                             rdfs:range xsd:int ;
+                             rdfs:comment "Typical abdominal pain suggestive of peritoneal involvement (2 persistent, 6 new/worse)" .
+
+
+###  http://ontologies.adaptcentre.ie/bvas#ischaemicCardiacPainScore
+:ischaemicCardiacPainScore rdf:type owl:DatatypeProperty ;
+                           rdfs:subPropertyOf :bvasCardioVascularScore ;
+                           rdfs:domain :BVASCardiovascular ;
+                           rdfs:range xsd:int ;
+                           rdfs:comment "Typical clinical history of cardiac pain leading to myocardial infarction or angina. (2 persistent, 4 new/worse)" .
+
+
+###  http://ontologies.adaptcentre.ie/bvas#lossOfPulseScore
+:lossOfPulseScore rdf:type owl:DatatypeProperty ;
+                  rdfs:subPropertyOf :bvasCardioVascularScore ;
+                  rdfs:domain :BVASCardiovascular ;
+                  rdfs:range xsd:int ;
+                  rdfs:comment "Clinical absence of peripheral arterial pulsation in any limb (1 persistent, 4 new/worse)" .
+
+
+###  http://ontologies.adaptcentre.ie/bvas#meningitisScore
+:meningitisScore rdf:type owl:DatatypeProperty ;
+                 rdfs:subPropertyOf :bvasNervousSystemScore ;
+                 rdfs:domain :BVASNervousSystem ;
+                 rdfs:range xsd:int ;
+                 rdfs:comment "Clinical evidence of meningism (1 persistent, 3 new/worse)" .
+
+
+###  http://ontologies.adaptcentre.ie/bvas#mononeuritisMultiplexScore
+:mononeuritisMultiplexScore rdf:type owl:DatatypeProperty ;
+                            rdfs:subPropertyOf :bvasNervousSystemScore ;
+                            rdfs:domain :BVASNervousSystem ;
+                            rdfs:range xsd:int ;
+                            rdfs:comment "Single or multiple specific motor nerve palsies (3 persistent, 9 new/worse)" .
+
+
+###  http://ontologies.adaptcentre.ie/bvas#mouthUlcersScore
+:mouthUlcersScore rdf:type owl:DatatypeProperty ;
+                  rdfs:subPropertyOf :bvasMucousScore ;
+                  rdfs:domain <http://ontologies.adaptcentre.ie/bvas#BVASMucousMembranes&Eyes> ;
+                  rdfs:range xsd:int ;
+                  rdfs:comment "Aphthous stomatitis, deep ulcers, strawberry gingival hyperplasia (1 persistent, 2 new/worse))" .
+
+
+###  http://ontologies.adaptcentre.ie/bvas#myalgiaScore
+:myalgiaScore rdf:type owl:DatatypeProperty ;
+              rdfs:subPropertyOf :bvasGeneralScore ;
+              rdfs:domain :BVASGeneral ;
+              rdfs:range xsd:int ;
+              rdfs:comment "Pain in the muscles recorded (1 persistent, 1 new/worse)" .
+
+
+###  http://ontologies.adaptcentre.ie/bvas#nodulesScore
+:nodulesScore rdf:type owl:DatatypeProperty ;
+              rdfs:subPropertyOf :bvasChestScore ;
+              rdfs:domain :BVASChest ;
+              rdfs:range xsd:int ;
+              rdfs:comment "New lesions detected on imaging (* persistent, 3 new/worse)" .
+
+
+###  http://ontologies.adaptcentre.ie/bvas#numberOfMajorBVASItems
+:numberOfMajorBVASItems rdf:type owl:DatatypeProperty ;
+                        rdfs:subPropertyOf :bvasScore ;
+                        rdfs:domain :BVAS ;
+                        rdfs:range xsd:int ;
+                        rdfs:comment "Indicates the number of MAJOR BVAS items" .
+
+
+###  http://ontologies.adaptcentre.ie/bvas#numberOfMinorBVASItems
+:numberOfMinorBVASItems rdf:type owl:DatatypeProperty ;
+                        rdfs:subPropertyOf :bvasScore ;
+                        rdfs:domain :BVAS ;
+                        rdfs:range xsd:int ;
+                        rdfs:comment "Indicates the number of MINOR BVAS items" .
+
+
+###  http://ontologies.adaptcentre.ie/bvas#organicConfusionScore
+:organicConfusionScore rdf:type owl:DatatypeProperty ;
+                       rdfs:subPropertyOf :bvasNervousSystemScore ;
+                       rdfs:domain :BVASNervousSystem ;
+                       rdfs:range xsd:int ;
+                       rdfs:comment "Impaired orientation, memory or other intellectual function in the absence of metabolic, psychiatric, pharmacological or toxic causes  (1 persistent, 3 new/worse)" .
+
+
+###  http://ontologies.adaptcentre.ie/bvas#otherSkinScore
+:otherSkinScore rdf:type owl:DatatypeProperty ;
+                rdfs:subPropertyOf :bvasCutaneousScore ;
+                rdfs:domain :BVASCutaneous ;
+                rdfs:range xsd:int ;
+                rdfs:comment "Livedo reticularis, subcutaneous nodules, erythema nodosum, etc. score (1 persistent, 2 new/worse)" .
+
+
+###  http://ontologies.adaptcentre.ie/bvas#paranasalScore
+:paranasalScore rdf:type owl:DatatypeProperty ;
+                rdfs:subPropertyOf :bvasENTScore ;
+                rdfs:domain :BVASEnt ;
+                rdfs:range xsd:int ;
+                rdfs:comment "Tenderness or pain over paranasal sinuses (usually confirmed by imaging) (1 persistent, 2 new/worse)" .
+
+
+###  http://ontologies.adaptcentre.ie/bvas#pericarditisScore
+:pericarditisScore rdf:type owl:DatatypeProperty ;
+                   rdfs:subPropertyOf :bvasCardioVascularScore ;
+                   rdfs:domain :BVASCardiovascular ;
+                   rdfs:range xsd:int ;
+                   rdfs:comment "Pericardial pain / friction rub on clinical assessment (1 persistent, 3 new/worse)" .
+
+
+###  http://ontologies.adaptcentre.ie/bvas#peritonitisScore
+:peritonitisScore rdf:type owl:DatatypeProperty ;
+                  rdfs:subPropertyOf :bvasAbdominalScore ;
+                  rdfs:domain :BVASAbdominal ;
+                  rdfs:range xsd:int ;
+                  rdfs:comment "Typical abdominal pain suggestive of peritoneal involvement (3 persistent, 9 new/worse)" .
+
+
+###  http://ontologies.adaptcentre.ie/bvas#pleurisyScore
+:pleurisyScore rdf:type owl:DatatypeProperty ;
+               rdfs:subPropertyOf :bvasChestScore ;
+               rdfs:domain :BVASChest ;
+               rdfs:range xsd:int ;
+               rdfs:comment "Pleural pain and/or friction rub on clinical assessment; radiologically confirmed pleural effusion (2 persistent, 4 new/worse)" .
+
+
+###  http://ontologies.adaptcentre.ie/bvas#proteinuriaScore
+:proteinuriaScore rdf:type owl:DatatypeProperty ;
+                  rdfs:subPropertyOf :bvasRenalScore ;
+                  rdfs:comment ">1+ on urinalysis or >0.2g/24 hours (2 persistent, 4 new/worse)" .
+
+
+###  http://ontologies.adaptcentre.ie/bvas#purpuraScore
+:purpuraScore rdf:type owl:DatatypeProperty ;
+              rdfs:subPropertyOf :bvasCutaneousScore ;
+              rdfs:domain :BVASCutaneous ;
+              rdfs:range xsd:int ;
+              rdfs:comment "Subcutaneous  or submucosal haemorrhage in the absence of trauma (1 persistent, 2 new/worse)" .
+
+
+###  http://ontologies.adaptcentre.ie/bvas#respiratoryFailureScore
+:respiratoryFailureScore rdf:type owl:DatatypeProperty ;
+                         rdfs:subPropertyOf :bvasChestScore ;
+                         rdfs:domain :BVASChest ;
+                         rdfs:range xsd:int ;
+                         rdfs:comment "The need for artificial ventilation (4 persistent, 6 new/worse)" .
+
+
+###  http://ontologies.adaptcentre.ie/bvas#retinalChangesScore
+:retinalChangesScore rdf:type owl:DatatypeProperty ;
+                     rdfs:subPropertyOf :bvasMucousScore ;
+                     rdfs:domain <http://ontologies.adaptcentre.ie/bvas#BVASMucousMembranes&Eyes> ;
+                     rdfs:range xsd:int ;
+                     rdfs:comment "Sheathing of retinal vessels or evidence of retinal vasculitis on fluorescein angiography; thrombotic retinal arterial or venous occlusion; soft retinal exudate (exclude hard exudates) / retinal haemorrhage (2 persistent, 6 new/worse)" .
+
+
+###  http://ontologies.adaptcentre.ie/bvas#seizuresScore
+:seizuresScore rdf:type owl:DatatypeProperty ;
+               rdfs:subPropertyOf :bvasNervousSystemScore ;
+               rdfs:domain :BVASNervousSystem ;
+               rdfs:range xsd:int ;
+               rdfs:comment "Clinical or EEG evidence of aberrant electrical activity in the brain (3 persistent, 9 new/worse)" .
+
+
+###  http://ontologies.adaptcentre.ie/bvas#sensorineuralScore
+:sensorineuralScore rdf:type owl:DatatypeProperty ;
+                    rdfs:subPropertyOf :bvasENTScore ;
+                    rdfs:domain :BVASEnt ;
+                    rdfs:range xsd:int ;
+                    rdfs:comment "Hearing loss due to auditory nerve or cochlear damage (usually confirmed by audiometry) (2 persistent, 6 new/worse)" .
+
+
+###  http://ontologies.adaptcentre.ie/bvas#sensoryPeripheralNeuropathyScore
+:sensoryPeripheralNeuropathyScore rdf:type owl:DatatypeProperty ;
+                                  rdfs:subPropertyOf :bvasNervousSystemScore ;
+                                  rdfs:domain :BVASNervousSystem ;
+                                  rdfs:range xsd:int ;
+                                  rdfs:comment "Objective sensory deficit in a non-dermatomal distribution (3 persistent, 6 new/worse)" .
+
+
+###  http://ontologies.adaptcentre.ie/bvas#serumCreatine1Score
+:serumCreatine1Score rdf:type owl:DatatypeProperty ;
+                     rdfs:subPropertyOf :bvasRenalScore ;
+                     rdfs:domain :BVASRenal ;
+                     rdfs:range xsd:int ;
+                     rdfs:comment "At first assessment only Serum creatinine 125-249 Âµmol/L (2 persistent, 4 new/worse)" .
+
+
+###  http://ontologies.adaptcentre.ie/bvas#serumCreatine2Score
+:serumCreatine2Score rdf:type owl:DatatypeProperty ;
+                     rdfs:subPropertyOf :bvasRenalScore ;
+                     rdfs:domain :BVASRenal ;
+                     rdfs:range xsd:int ;
+                     rdfs:comment "At first assessment only Serum creatinine 250-499 Âµmol/L (3 persistent, 6 new/worse)" .
+
+
+###  http://ontologies.adaptcentre.ie/bvas#serumCreatine3Score
+:serumCreatine3Score rdf:type owl:DatatypeProperty ;
+                     rdfs:subPropertyOf :bvasRenalScore ;
+                     rdfs:domain :BVASRenal ;
+                     rdfs:range xsd:int ;
+                     rdfs:comment "At first assessment only Serum creatinine â‰¥500 Âµmol/L (4 persistent, 8 new/worse)" .
+
+
+###  http://ontologies.adaptcentre.ie/bvas#significantProptosisScore
+:significantProptosisScore rdf:type owl:DatatypeProperty ;
+                           rdfs:subPropertyOf :bvasMucousScore ;
+                           rdfs:domain <http://ontologies.adaptcentre.ie/bvas#BVASMucousMembranes&Eyes> ;
+                           rdfs:range xsd:int ;
+                           rdfs:comment ">2 mm protrusion of the eyeball (2 persistent, 4 new/worse)" .
+
+
+###  http://ontologies.adaptcentre.ie/bvas#spinalcordLesionScore
+:spinalcordLesionScore rdf:type owl:DatatypeProperty ;
+                       rdfs:subPropertyOf :bvasNervousSystemScore ;
+                       rdfs:domain :BVASNervousSystem ;
+                       rdfs:range xsd:int ;
+                       rdfs:comment "Clinical or imaging evidence of spinal cord involvement (3 persistent, 9 new/worse)" .
+
+
+###  http://ontologies.adaptcentre.ie/bvas#strokeScore
+:strokeScore rdf:type owl:DatatypeProperty ;
+             rdfs:subPropertyOf :bvasNervousSystemScore ;
+             rdfs:domain :BVASNervousSystem ;
+             rdfs:range xsd:int ;
+             rdfs:comment "Focal neurological signs lasting >24 hours due to a CNS vascular event (3 persistent, 9 new/worse)" .
+
+
+###  http://ontologies.adaptcentre.ie/bvas#subglotticScore
+:subglotticScore rdf:type owl:DatatypeProperty ;
+                 rdfs:subPropertyOf :bvasENTScore ;
+                 rdfs:domain :BVASEnt ;
+                 rdfs:range xsd:int ;
+                 rdfs:comment "Stridor or hoarseness due to inflammation and narrowing of the subglottic area observed by laryngoscopy (3 persistent, 6 new/worse)" .
+
+
+###  http://ontologies.adaptcentre.ie/bvas#suddenVisualLossScore
+:suddenVisualLossScore rdf:type owl:DatatypeProperty ;
+                       rdfs:subPropertyOf :bvasMucousScore ;
+                       rdfs:domain <http://ontologies.adaptcentre.ie/bvas#BVASMucousMembranes&Eyes> ;
+                       rdfs:range xsd:int ;
+                       rdfs:comment "Acute loss of vision (* persistent, 6 new/worse)" .
+
+
+###  http://ontologies.adaptcentre.ie/bvas#ulcerScore
+:ulcerScore rdf:type owl:DatatypeProperty ;
+            rdfs:subPropertyOf :bvasCutaneousScore ;
+            rdfs:domain :BVASCutaneous ;
+            rdfs:range xsd:int ;
+            rdfs:comment "A disruption in the continuity of the skin score (1 persistent, 4 new/worse)" .
+
+
+###  http://ontologies.adaptcentre.ie/bvas#uveitisScore
+:uveitisScore rdf:type owl:DatatypeProperty ;
+              rdfs:subPropertyOf :bvasMucousScore ;
+              rdfs:domain <http://ontologies.adaptcentre.ie/bvas#BVASMucousMembranes&Eyes> ;
+              rdfs:range xsd:int ;
+              rdfs:comment "Inflammation of the uvea (iris, ciliary body, choroid) (2 persistent, 6 new/worse)" .
+
+
+###  http://ontologies.adaptcentre.ie/bvas#valvulvarHeartDiseaseScore
+:valvulvarHeartDiseaseScore rdf:type owl:DatatypeProperty ;
+                            rdfs:subPropertyOf :bvasCardioVascularScore ;
+                            rdfs:domain :BVASCardiovascular ;
+                            rdfs:range xsd:int ;
+                            rdfs:comment "Clinical or echo detection of aortic / mitral / pulmonary valve involvemen (2 persistent, 4 new/worse)" .
+
+
+###  http://ontologies.adaptcentre.ie/bvas#weightLossScore
+:weightLossScore rdf:type owl:DatatypeProperty ;
+                 rdfs:subPropertyOf :bvasGeneralScore ;
+                 rdfs:domain :BVASGeneral ;
+                 rdfs:range xsd:int ;
+                 rdfs:comment "Loss of dry body weight without dieting score (2 persistent, 2 new/worse)" .
+
+
+###  http://ontologies.adaptcentre.ie/bvas#wheezeScore
+:wheezeScore rdf:type owl:DatatypeProperty ;
+             rdfs:subPropertyOf :bvasChestScore ;
+             rdfs:domain :BVASChest ;
+             rdfs:range xsd:int ;
+             rdfs:comment "Wheeze on clinical examination (1 persistent, 2 new/worse)" .
+
+
+###  http://ontologies.adaptcentre.ie/bvas#scleritis&EpiscleritisScore
+<http://ontologies.adaptcentre.ie/bvas#scleritis&EpiscleritisScore> rdf:type owl:DatatypeProperty ;
+                                                                    rdfs:subPropertyOf :bvasMucousScore ;
+                                                                    rdfs:domain <http://ontologies.adaptcentre.ie/bvas#BVASMucousMembranes&Eyes> ;
+                                                                    rdfs:range xsd:int ;
+                                                                    rdfs:comment "Inflammation of the sclera (2 persistent, 6 new/worse)" .
+
+
+###  http://www.w3.org/ns/prov#generatedAtTime
+<http://www.w3.org/ns/prov#generatedAtTime> rdf:type owl:DatatypeProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://ontologies.adaptcentre.ie/bvas#BVAS
+:BVAS rdf:type owl:Class ;
+      rdfs:comment """The birmingham vasculitis activity score is a rating system for measuring disease manifestation related to vasculitus. Disease manifestations are scored only when they are attributable to active vasculitis. The manifestation should not be scored if there is reasonable evidence of another aetiology for the symptoms e.g. infection, drug reaction, other co-morbidity. Persistent Disease score is only available if all the abnormalities are due to active (but not new or worse) vasculitis. Specialist opinion, or the results of laboratory or imaging investigations will be required for some items. Excepting those circumstances, the scores have been completed at the time of the consultation. Bands of serum creatinine should be scored only on the first visit. Some subclasses are not compatible with â€˜persistentâ€™ disease. These manifestations always suggest new or worse disease when due to active vasculitis.
+	  """ ;
+      rdfs:label "Birmingham Vasculitis Activity Score"@en ,
+                 "Birmingham Vasculitis Activity Score" .
+
+
+###  http://ontologies.adaptcentre.ie/bvas#BVASAbdominal
+:BVASAbdominal rdf:type owl:Class ;
+               rdfs:comment "Abdominal disease manifestations related to vasculitis" ;
+               rdfs:label "BVAS Abdominal Manifestations"@en ,
+                          "BVAS Abdominal Manifestations" .
+
+
+###  http://ontologies.adaptcentre.ie/bvas#BVASCardiovascular
+:BVASCardiovascular rdf:type owl:Class ;
+                    rdfs:comment "Cardiovascular disease manifestations related to vasculitis" ;
+                    rdfs:label "BVAS Cardiovascular Manifestations"@en ,
+                               "BVAS Cardiovascular Manifestations" .
+
+
+###  http://ontologies.adaptcentre.ie/bvas#BVASChest
+:BVASChest rdf:type owl:Class ;
+           rdfs:comment "Chest disease manifestations related to vasculitis" ;
+           rdfs:label "BVAS Chest Manifestations"@en ,
+                      "BVAS Chest Manifestations" .
+
+
+###  http://ontologies.adaptcentre.ie/bvas#BVASCutaneous
+:BVASCutaneous rdf:type owl:Class ;
+               rdfs:comment "Cutaneous disease manifestations related to BVAS" ;
+               rdfs:label "BVAS Cutaneous Disease Manifestations"@en ,
+                          "BVAS Cutaneous Disease Manifestations" .
+
+
+###  http://ontologies.adaptcentre.ie/bvas#BVASEnt
+:BVASEnt rdf:type owl:Class ;
+         rdfs:comment "Ear, nose and throat (ENT) disease manifestations related to vasculitis" ;
+         rdfs:label "BVAS ENT Manifestations"@en ,
+                    "BVAS ENT Manifestations" .
+
+
+###  http://ontologies.adaptcentre.ie/bvas#BVASGeneral
+:BVASGeneral rdf:type owl:Class ;
+             rdfs:comment "General disease manifestations related to vasculitis" ;
+             rdfs:label "BVAS General Disease Manifestations"@en ,
+                        "BVAS General Disease Manifestations" .
+
+
+###  http://ontologies.adaptcentre.ie/bvas#BVASNervousSystem
+:BVASNervousSystem rdf:type owl:Class ;
+                   rdfs:comment "Nervous system disease manifestations related to vasculitis" ;
+                   rdfs:label "BVAS Nervous System Disease Manifestations"@en ,
+                              "BVAS Nervous System Disease Manifestations" .
+
+
+###  http://ontologies.adaptcentre.ie/bvas#BVASRenal
+:BVASRenal rdf:type owl:Class ;
+           rdfs:comment "Renal disease manifestations related to vasculitis" ;
+           rdfs:label "BVAS Renal Manifestations"@en ,
+                      "BVAS Renal Manifestations" .
+
+
+###  http://ontologies.adaptcentre.ie/bvas#BVASMucousMembranes&Eyes
+<http://ontologies.adaptcentre.ie/bvas#BVASMucousMembranes&Eyes> rdf:type owl:Class ;
+                                                                 rdfs:comment "Mucous membranes and eyes manifestations related to BVAS" ;
+                                                                 rdfs:label "BVAS Mucous Membranes and Eyes Manifestations"@en ,
+                                                                            "BVAS Mucous Membranes and Eyes Manifestations" .
+
+
+###  Generated by the OWL API (version 5.1.11) https://github.com/owlcs/owlapi/
