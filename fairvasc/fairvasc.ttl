@@ -1,0 +1,486 @@
+@prefix : <http://ontologies.adaptcentre.ie/fairvasc#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://ontologies.adaptcentre.ie/fairvasc> .
+
+<http://ontologies.adaptcentre.ie/fairvasc> rdf:type owl:Ontology ;
+                                             owl:versionIRI <http://ontologies.adaptcentre.ie/fairvasc> ;
+                                             owl:imports <http://ontologies.adaptcentre.ie/bvas> ;
+                                             <http://creativecommons.org/ns#license> <http://creativecommons.org/licenses/by/4.0/> ;
+                                             <http://purl.org/dc/elements/1.1/creator> "ADAPT" ;
+                                             <http://purl.org/dc/elements/1.1/date> "2021-05-06" ;
+                                             <http://purl.org/dc/elements/1.1/publisher> <http://www.adapt-centre.ie/> ;
+                                             <http://purl.org/dc/elements/1.1/rights> "The FAIRVASC Ontology is available under the CC 4.0 BY License; see http://creativecommons.org/licenses/by/4.0/. This license lets others distribute, remix, tweak, and build upon your work, even commercially, as long as they credit you for the original creation. For proper attribution, simply include the statement: \"This work is based on the analysis of Rare Kidney Disease Registries in seven European countries; Ireland, Sweden, Germany, Czechoslovakia, Poland, UK and France and has been developed in collaboration with the ADAPT Centre, Trinity College Dublin."@en ;
+                                             <http://purl.org/dc/elements/1.1/title> "The FAIRVASC Ontology"@en ;
+                                             rdfs:comment "The labels for concepts introduced for this ontology are still pending approval." ;
+                                             owl:versionInfo "2.00.000" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://creativecommons.org/ns#license
+<http://creativecommons.org/ns#license> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/creator
+<http://purl.org/dc/elements/1.1/creator> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/date
+<http://purl.org/dc/elements/1.1/date> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/publisher
+<http://purl.org/dc/elements/1.1/publisher> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/rights
+<http://purl.org/dc/elements/1.1/rights> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/title
+<http://purl.org/dc/elements/1.1/title> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Datatypes
+#################################################################
+
+###  http://www.w3.org/2001/XMLSchema#gYear
+xsd:gYear rdf:type rdfs:Datatype .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://ontologies.adaptcentre.ie/fairvasc#hasAnca
+:hasAnca rdf:type owl:ObjectProperty ;
+         rdfs:domain :PatientOverview ;
+         rdfs:range :ANCA ;
+         rdfs:comment "Relates a patient overview/summary to their overall ANCA results." ;
+         rdfs:label "has Anti-neutrophil cytoplasm antibodies (ANCA)"@en ,
+                    "has Anti-neutrophil cytoplasm antibodies (ANCA)" .
+
+
+###  http://ontologies.adaptcentre.ie/fairvasc#hasBVAS
+:hasBVAS rdf:type owl:ObjectProperty ;
+         rdfs:domain :Encounter ;
+         rdfs:range <http://ontologies.adaptcentre.ie/bvas#BVAS> ;
+         rdfs:comment "Relates an encounter to a birmingham vasculitis score"@en ;
+         rdfs:label "has Birmingham Vasculitis Activity Score (BVAS)"@en ,
+                    "has Birmingham Vasculitis Activity Score (BVAS)" .
+
+
+###  http://ontologies.adaptcentre.ie/fairvasc#hasClinicalOutcome
+:hasClinicalOutcome rdf:type owl:ObjectProperty ;
+                    rdfs:domain :Patient ;
+                    rdfs:range :ClinicalOutcomes ;
+                    rdfs:comment "Relates a patient to the clinical outcome of their disease." ;
+                    rdfs:label "has Clinical Outcome"@en ,
+                               "has Clinical Outcome" .
+
+
+###  http://ontologies.adaptcentre.ie/fairvasc#hasClinicalTest
+:hasClinicalTest rdf:type owl:ObjectProperty ;
+                 rdfs:domain :Encounter ;
+                 rdfs:range :ClinicalTest ;
+                 rdfs:comment "Relates an encounter to a clinical test." ;
+                 rdfs:label "has Clinical Test"@en ,
+                            "has Clinical Test" .
+
+
+###  http://ontologies.adaptcentre.ie/fairvasc#hasComplication
+:hasComplication rdf:type owl:ObjectProperty ;
+                 rdfs:domain :ClinicalOutcomes ,
+                             :Encounter ;
+                 rdfs:range :Complication ;
+                 rdfs:comment "Relates a patients outcomes to complications." ;
+                 rdfs:label "has Complication"@en ,
+                            "has Complication" .
+
+
+###  http://ontologies.adaptcentre.ie/fairvasc#hasDiagnosis
+:hasDiagnosis rdf:type owl:ObjectProperty ;
+              rdfs:domain :PatientOverview ;
+              rdfs:range :Diagnosis ;
+              rdfs:comment "Relates a patient overview/summary to their overall diagnosis." ;
+              rdfs:label "has Diagnosis"@en ,
+                         "has Diagnosis" .
+
+
+###  http://ontologies.adaptcentre.ie/fairvasc#hasEncounter
+:hasEncounter rdf:type owl:ObjectProperty ;
+              rdfs:domain :Patient ;
+              rdfs:range :Encounter ;
+              rdfs:comment "Relates a patient to an encounter related to their vasculitis." ;
+              rdfs:label "has Encounter"@en ,
+                         "has Encounter" .
+
+
+###  http://ontologies.adaptcentre.ie/fairvasc#hasOrganPattern
+:hasOrganPattern rdf:type owl:ObjectProperty ;
+                 rdfs:domain :PatientOverview ;
+                 rdfs:range :OrganPattern ;
+                 rdfs:comment "Relates a patients overivew/summary to their overall organ pattern organ pattern." ;
+                 rdfs:label "has Organ Pattern"@en ,
+                            "has Organ Pattern" .
+
+
+###  http://ontologies.adaptcentre.ie/fairvasc#hasPatientOverview
+:hasPatientOverview rdf:type owl:ObjectProperty ;
+                    rdfs:domain :Patient ;
+                    rdfs:range :PatientOverview ;
+                    rdfs:comment "Relates a Patient to their Patient Overview/Summary" ;
+                    rdfs:label "has Patient Overview"@en ,
+                               "has Patient Overview" .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://ontologies.adaptcentre.ie/fairvasc#ESKD
+:ESKD rdf:type owl:DatatypeProperty ;
+      rdfs:domain :ClinicalOutcomes ;
+      rdfs:range xsd:boolean ;
+      rdfs:comment "Did end stage kidney disease occur?" ;
+      rdfs:label "end stage kidney disease"@en ,
+                 "end stage kidney disease" .
+
+
+###  http://ontologies.adaptcentre.ie/fairvasc#affectedOrgan
+:affectedOrgan rdf:type owl:DatatypeProperty ;
+               rdfs:domain :OrganPattern ;
+               rdfs:range xsd:anyURI ;
+               rdfs:comment "a string value which represents the organ affected" ;
+               rdfs:label "organ affected"@en ,
+                          "organ affected" .
+
+
+###  http://ontologies.adaptcentre.ie/fairvasc#ancaIF
+:ancaIF rdf:type owl:DatatypeProperty ;
+        rdfs:domain :ANCA ;
+        rdfs:range xsd:string ;
+        rdfs:comment "Value for ANCA Immunofluorescence (IF). Possible values are: <cANCA positive, pANCA positive, Atypical, Negative, Not tested>" ;
+        rdfs:label "has ANCA Immunofluorescence (IF) result"@en ,
+                   "has ANCA Immunofluorescence (IF) result" .
+
+
+###  http://ontologies.adaptcentre.ie/fairvasc#ancaSpec
+:ancaSpec rdf:type owl:DatatypeProperty ;
+          rdfs:domain :ANCA ;
+          rdfs:range xsd:string ;
+          rdfs:comment "The ELISA (enzyme-linked immunosorbent assay) is a widely used application for detecting and quantifying proteins and antigens from various samples. Possible values include: <MPO positive, ELISA negative, PR3 positive, other, No Elisa performed, MPO and PR3 positive>" ;
+          rdfs:label "has ANCA Specificity (ELISA) results"@en ,
+                     "has ANCA Specificity (ELISA) results" .
+
+
+###  http://ontologies.adaptcentre.ie/fairvasc#causeOfDeath
+:causeOfDeath rdf:type owl:DatatypeProperty ;
+              rdfs:domain :ClinicalOutcomes ;
+              rdfs:range xsd:string ;
+              rdfs:comment "the main cause of a patients death" ;
+              rdfs:label "cause of death"@en ,
+                         "cause of death" .
+
+
+###  http://ontologies.adaptcentre.ie/fairvasc#complicationSeverity
+:complicationSeverity rdf:type owl:DatatypeProperty ;
+                      rdfs:domain :Complication ;
+                      rdfs:range xsd:anyURI ;
+                      rdfs:comment "the severity of a complication" ;
+                      rdfs:label "complication severity"@en ,
+                                 "complication severity" .
+
+
+###  http://ontologies.adaptcentre.ie/fairvasc#complicationType
+:complicationType rdf:type owl:DatatypeProperty ;
+                  rdfs:domain :Complication ;
+                  rdfs:range xsd:anyURI ;
+                  rdfs:comment "the type of complication" ;
+                  rdfs:label "type of complication"@en ,
+                             "type of complication" .
+
+
+###  http://ontologies.adaptcentre.ie/fairvasc#dateOfComplications
+:dateOfComplications rdf:type owl:DatatypeProperty ;
+                     rdfs:domain :Complication ;
+                     rdfs:range xsd:dateTime ;
+                     rdfs:comment "the date when complications took place" ;
+                     rdfs:label "date of complications"@en ,
+                                "date of complications" .
+
+
+###  http://ontologies.adaptcentre.ie/fairvasc#dateOfDeath
+:dateOfDeath rdf:type owl:DatatypeProperty ;
+             rdfs:domain :ClinicalOutcomes ;
+             rdfs:range xsd:dateTime ;
+             rdfs:comment "the date a patient died" ;
+             rdfs:label "date of death"@en ,
+                        "date of death" .
+
+
+###  http://ontologies.adaptcentre.ie/fairvasc#dateOfDiagnosis
+:dateOfDiagnosis rdf:type owl:DatatypeProperty ;
+                 rdfs:domain :Diagnosis ;
+                 rdfs:range xsd:dateTime ;
+                 rdfs:comment "the date this patients diagnosis took place" ;
+                 rdfs:label "date of diagnosis"@en ,
+                            "date of diagnosis" .
+
+
+###  http://ontologies.adaptcentre.ie/fairvasc#dateOfESKD
+:dateOfESKD rdf:type owl:DatatypeProperty ;
+            rdfs:domain :ClinicalOutcomes ;
+            rdfs:range xsd:dateTime ;
+            rdfs:comment "date when end stage kidney disease took place" ;
+            rdfs:label "date of end stage kidney disease"@en ,
+                       "date of end stage kidney disease" .
+
+
+###  http://ontologies.adaptcentre.ie/fairvasc#dateOfEncounter
+:dateOfEncounter rdf:type owl:DatatypeProperty ;
+                 rdfs:domain :Encounter ;
+                 rdfs:range xsd:dateTime ;
+                 rdfs:comment "the date when an encounter took place" ;
+                 rdfs:label "date of encounter"@en ,
+                            "date of encounter" .
+
+
+###  http://ontologies.adaptcentre.ie/fairvasc#death
+:death rdf:type owl:DatatypeProperty ;
+       rdfs:domain :ClinicalOutcomes ;
+       rdfs:range xsd:boolean ;
+       rdfs:comment "Did death occur?" ;
+       rdfs:label "death"@en ,
+                  "death" .
+
+
+###  http://ontologies.adaptcentre.ie/fairvasc#gender
+:gender rdf:type owl:DatatypeProperty ;
+        rdfs:domain :Patient ;
+        rdfs:range xsd:string ;
+        rdfs:comment "The gender of the patient. Possble values are <Male, Female, other>" ;
+        rdfs:label "gender"@en ,
+                   "gender" .
+
+
+###  http://ontologies.adaptcentre.ie/fairvasc#isNormalised
+:isNormalised rdf:type owl:DatatypeProperty ;
+              rdfs:domain :Complication ,
+                          :OrganPattern ;
+              rdfs:range xsd:boolean .
+
+
+###  http://ontologies.adaptcentre.ie/fairvasc#lastRecordedContact
+:lastRecordedContact rdf:type owl:DatatypeProperty ;
+                     rdfs:domain :ClinicalOutcomes ;
+                     rdfs:range xsd:dateTime ;
+                     rdfs:comment "the date of the last recorded contact of the patient with the registry" ;
+                     rdfs:label "last recorded contact"@en ,
+                                "last recorded contact" .
+
+
+###  http://ontologies.adaptcentre.ie/fairvasc#mainDiagnosis
+:mainDiagnosis rdf:type owl:DatatypeProperty ;
+               rdfs:domain :Diagnosis ;
+               rdfs:range xsd:anyURI ;
+               rdfs:comment "The main diagnosis for the patient" ;
+               rdfs:label "main diagnosis"@en ,
+                          "main diagnosis" .
+
+
+###  http://ontologies.adaptcentre.ie/fairvasc#organDiseasePatternLung
+:organDiseasePatternLung rdf:type owl:DatatypeProperty ;
+                         rdfs:domain :OrganPattern ;
+                         rdfs:range xsd:anyURI ;
+                         rdfs:comment "a string value which represents a disease pattern for lungs" ;
+                         rdfs:label "organ disease pattern lungs"@en ,
+                                    "organ disease pattern lungs" .
+
+
+###  http://ontologies.adaptcentre.ie/fairvasc#patientID
+:patientID rdf:type owl:DatatypeProperty ;
+           rdfs:domain :Patient ;
+           rdfs:range xsd:string ;
+           rdfs:comment "an identifier for a patient, generally taken from the identifier in the associated registry" ;
+           rdfs:label "patient identifier"@en ,
+                      "patient identifier" .
+
+
+###  http://ontologies.adaptcentre.ie/fairvasc#testDate
+:testDate rdf:type owl:DatatypeProperty ;
+          rdfs:domain :ClinicalTest ;
+          rdfs:range xsd:dateTime ;
+          rdfs:comment "the date a clinical test took place (which could be after a specific patient encounter)" ;
+          rdfs:label "date test took place"@en ,
+                     "date test took place" .
+
+
+###  http://ontologies.adaptcentre.ie/fairvasc#testType
+:testType rdf:type owl:DatatypeProperty ;
+          rdfs:domain :ClinicalTest ;
+          rdfs:range xsd:string ;
+          rdfs:comment "the type of test" ;
+          rdfs:label "type of test"@en ,
+                     "type of test" .
+
+
+###  http://ontologies.adaptcentre.ie/fairvasc#testUnit
+:testUnit rdf:type owl:DatatypeProperty ;
+          rdfs:domain :ClinicalTest ;
+          rdfs:range xsd:string ;
+          rdfs:comment "the unit used in a test" ;
+          rdfs:label "unit of test"@en ,
+                     "unit of test" .
+
+
+###  http://ontologies.adaptcentre.ie/fairvasc#testValue
+:testValue rdf:type owl:DatatypeProperty ;
+           rdfs:domain :ClinicalTest ;
+           rdfs:range xsd:double ;
+           rdfs:comment "the value of a test" ;
+           rdfs:label "value of test"@en ,
+                      "value of test" .
+
+
+###  http://ontologies.adaptcentre.ie/fairvasc#yearOfBirth
+:yearOfBirth rdf:type owl:DatatypeProperty ;
+             rdfs:domain :Patient ;
+             rdfs:range xsd:gYear ;
+             rdfs:comment "the year a patient was born" ;
+             rdfs:label "year of birth"@en ,
+                        "year of birth" .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://ontologies.adaptcentre.ie/bvas#BVAS
+<http://ontologies.adaptcentre.ie/bvas#BVAS> rdf:type owl:Class .
+
+
+###  http://ontologies.adaptcentre.ie/fairvasc#ANCA
+:ANCA rdf:type owl:Class ;
+      rdfs:comment "These are autoantibodies that target a type of human white blood cell called neutrophils, which are important in health for fighting infection partly through the release of toxic substances that destroy bacteria. In ANCA-associated vasculitis, ANCA specifically bind to two proteins called proteinase 3 (PR3) and myeloperoxidase (MPO). Patients with ANCA-associated vasculitis usually have autoantibodies against PR3 (PR3-ANCA) or MPO (MPO-ANCA) but not both. ANCA also contributes to blood vessel damage." ;
+      rdfs:label "Anti-neutrophil cytoplasm antibodies (ANCA)"@en ,
+                 "Anti-neutrophil cytoplasm antibodies (ANCA)" .
+
+
+###  http://ontologies.adaptcentre.ie/fairvasc#ClinicalOutcomes
+:ClinicalOutcomes rdf:type owl:Class ;
+                  rdfs:comment """Clinical outcomes represent the class of measurable changes in health, function or quality of life that result from a treatment of care , for vasculitis.
+
+Important outcomes are related to date recorded of end stage kidney disease, death (and cause) of death, and the last recorded contact of the patient with the registry.  
+
+Clinical Outcomes are also related to complications""" ;
+                  rdfs:label "Clinical Outcomes"@en ,
+                             "Clinical Outcomes" .
+
+
+###  http://ontologies.adaptcentre.ie/fairvasc#ClinicalTest
+:ClinicalTest rdf:type owl:Class ;
+              rdfs:comment "This class represents a test conducted at an encounter, for example, a blood test. A typical blood test in vasculitis would be to determine creatinine levels. Creatinine is a waste product produced by muscles and is excreted from the body by the kidneys. Blood levels of creatinine are used as a measure of kidney function."@en ;
+              rdfs:label "Clinical Test"@en ,
+                         "Clinical Test" .
+
+
+###  http://ontologies.adaptcentre.ie/fairvasc#Complication
+:Complication rdf:type owl:Class ;
+              rdfs:label "Complication"@en ,
+                         "Complication" ,
+                         "This class represents any complications that a patient of a vasculitis registry experienced due to vasculitis." .
+
+
+###  http://ontologies.adaptcentre.ie/fairvasc#ComplicationCardiovascular
+:ComplicationCardiovascular rdf:type owl:Class ;
+                            rdfs:subClassOf :Complication ;
+                            rdfs:comment "This class represents cardiovascular complications that are the related to vasculitis." ;
+                            rdfs:label "Complication Cardiovascular"@en ,
+                                       "Complication Cardiovascular" .
+
+
+###  http://ontologies.adaptcentre.ie/fairvasc#ComplicationInfection
+:ComplicationInfection rdf:type owl:Class ;
+                       rdfs:subClassOf :Complication ;
+                       rdfs:comment "This class represents infections that are the result of complications related to vasculitis." ;
+                       rdfs:label "Complication Infection"@en ,
+                                  "Complication Infection" .
+
+
+###  http://ontologies.adaptcentre.ie/fairvasc#ComplicationMalignancy
+:ComplicationMalignancy rdf:type owl:Class ;
+                        rdfs:subClassOf :Complication ;
+                        rdfs:comment "This class represents malignancies that are the result of complications related to vasculitis." ;
+                        rdfs:label "Complication Malignancy"@en ,
+                                   "Complication Malignancy" .
+
+
+###  http://ontologies.adaptcentre.ie/fairvasc#ComplicationThromboembolism
+:ComplicationThromboembolism rdf:type owl:Class ;
+                             rdfs:subClassOf :Complication ;
+                             rdfs:comment "This class represents thromboembolism complications that are the related to vasculitis." ;
+                             rdfs:label "Complication Thromboembolism"@en ,
+                                        "Complication Thromboembolism" .
+
+
+###  http://ontologies.adaptcentre.ie/fairvasc#Diagnosis
+:Diagnosis rdf:type owl:Class ;
+           rdfs:comment "This class represents a person's diagnosis of vasculitis and (possibly a small number of) other diseases." ;
+           rdfs:label "Diagnosis"@en ,
+                      "Diagnosis" .
+
+
+###  http://ontologies.adaptcentre.ie/fairvasc#Encounter
+:Encounter rdf:type owl:Class ;
+           rdfs:comment "This class covers all â€œencountersâ€ the patient has with their medical professionals. Types of encounters include; BVAS, Tests (e.g. blood tests which include all recorded creatinine levels), and a record of each recorded complications over the course of their disease etc." ;
+           rdfs:label "Encounter"@en ,
+                      "Encounter" .
+
+
+###  http://ontologies.adaptcentre.ie/fairvasc#OrganPattern
+:OrganPattern rdf:type owl:Class ;
+              rdfs:comment "This class represents the different organs which have been affected by vasculitis. It is important to note that not every organ system will be affected in every patient. The pattern of organ involvement (and symptoms) is unique to the individual, as well as the type of vasculitis. It is derived either from direct observations, or through the use of BVAS. Organ patterns are mapped to SNOMED-CT codes." ;
+              rdfs:label "Organ Pattern"@en ,
+                         "Organ Pattern" .
+
+
+###  http://ontologies.adaptcentre.ie/fairvasc#Patient
+:Patient rdf:type owl:Class ;
+         rdfs:comment "A patient of a vasculitis registry." ;
+         rdfs:label "Patient"@en ,
+                    "Patient" .
+
+
+###  http://ontologies.adaptcentre.ie/fairvasc#PatientOverview
+:PatientOverview rdf:type owl:Class ;
+                 rdfs:comment "This class represents an overview of the patient health in relation to vasculitis. The overview consists of the patientâ€™s current diagnosis, their ANCA and also how their organs have been affected over the course of their disease." ;
+                 rdfs:label "Patient Overview"@en ,
+                            "Patient Overview" .
+
+
+###  http://ontologies.adaptcentre.ie/fairvasc#ProvenanceActivityQuery
+:ProvenanceActivityQuery rdf:type owl:Class ;
+                         rdfs:subClassOf <http://www.w3.org/ns/prov#Activity> ;
+                         rdfs:comment "This class represents provenance data related to activity og querying of an RDF graph, for example when a query was made, who made a query and the type of query made." ;
+                         rdfs:label "Provenenace Activity Query"@en ,
+                                    "Provenenace Activity Query" .
+
+
+###  http://ontologies.adaptcentre.ie/fairvasc#ProvenanceActivityUplift
+:ProvenanceActivityUplift rdf:type owl:Class ;
+                          rdfs:subClassOf <http://www.w3.org/ns/prov#Activity> ;
+                          rdfs:comment "This class represents provenance data related to the activity of uplifting of tabular data into RDF. It records data such as the name of the file being uplidfted (e.g. a CSV file name), the name of the mapping file (e.g. an R2RML mapping file), the name of the resulting graph generated by this uplift, and the responsible party for conducting the uplift activity." ;
+                          rdfs:label "Provenenace Activity Uplift"@en ,
+                                     "Provenenace Activity Uplift" .
+
+
+###  http://www.w3.org/ns/prov#Activity
+<http://www.w3.org/ns/prov#Activity> rdf:type owl:Class .
+
