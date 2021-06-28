@@ -6,7 +6,7 @@ Latest versions of FAIRVASC:
 - Canonical URI for the HTML Representation https://w3id.org/FAIRVASC#.
 - Canonical URI for the Turtle Representation http://ontologies.adaptcentre.ie/fairvasc/ontology.ttl.
 
-## Adding content to Geoff
+## Adding content to FAIRVASC
 1. Fork this repository.
 2. Add contribution to FAIRVASC or separate alignment file.
 3. Validate that the turtle file is still valid using for example Protegé or http://ttl.summerofcode.be/
